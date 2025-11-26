@@ -170,7 +170,7 @@ def main():
                 continue
             f.write(f"{k},{v}\n")
 
-    print("✅ Inductive Miner done.")
+    print(" Inductive Miner done.")
     print(f"   Fitness:        {metrics['fitness']:.4f}")
     print(f"   Precision:      {metrics['precision']:.4f}")
     print(f"   F-score:        {metrics['f_score']:.4f}")
@@ -183,3 +183,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
