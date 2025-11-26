@@ -125,7 +125,7 @@ def main(input_path: str | None = None):
     df_known_weeks = df_remaining[df_remaining["Tantervi_hét"] != "Ismeretlen"].copy()
 
 
-    print("✅ Előfeldolgozás kész. Kimenetek a data/processed mappában.")
+    print("Előfeldolgozás kész. Kimenetek a data/processed mappában.")
 
 
 if __name__ == "__main__":
@@ -133,3 +133,4 @@ if __name__ == "__main__":
     ap.add_argument("--input", type=str, default=None, help="Bemeneti Excel útvonala")
     args = ap.parse_args()
     main(args.input)
+
