@@ -143,9 +143,10 @@ def main():
 
     export_fuzzy_tables(model, out_dir)
 
-    print("✅ Fuzzy Miner kész.")
-    print(f"💾 CSV-k: {out_dir}")
+    print("Fuzzy Miner kész.")
+    print(f"CSV-k: {out_dir}")
 
 
 if __name__ == "__main__":
     main()
+
