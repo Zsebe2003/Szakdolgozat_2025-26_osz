@@ -1,0 +1,12 @@
+{
+  "xes_path": "data\\xes\\event_log_weekly_with_category.xes",
+  "fitness_token_based": 0.5430529398676274,
+  "precision_etconformance": 1.0,
+  "generalization": 0.7152869566060076,
+  "simplicity": 0.2263013698630137,
+  "model_info": {
+    "places": 334,
+    "transitions": 79,
+    "arcs": 1119
+  }
+}

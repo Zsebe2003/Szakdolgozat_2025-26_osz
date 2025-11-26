@@ -1,0 +1,5 @@
+metric,value
+fitness_token_based,0.009669795410304383
+precision_etconformance,0.4285714285714286
+generalization,0.9861767220190399
+simplicity,0.7777777777777779
