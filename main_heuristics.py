@@ -343,21 +343,22 @@ def main():
                     f.write(f"{k},{v}\n")
 
         # Print summary
-        logger.info("✅ Heuristics Miner completed successfully")
-        logger.info(f"   Fitness:        {metrics['fitness']:.4f}")
+        logger.info("Heuristics Miner completed successfully")
+        logger.info(f"Fitness:        {metrics['fitness']:.4f}")
         logger.info(f"   Precision:      {metrics['precision']:.4f}")
         logger.info(f"   F-score:        {metrics.get('f_score', 0):.4f}")
         logger.info(f"   Generalization: {metrics['generalization']:.4f}")
         logger.info(f"   Simplicity:     {metrics['simplicity']:.4f}")
         logger.info(f"   Model: places={metrics['model_info']['places']}, "
                    f"transitions={metrics['model_info']['transitions']}, arcs={metrics['model_info']['arcs']}")
-        logger.info(f"💾 Results saved: {json_path}")
-        logger.info(f"💾 Results saved: {csv_path}")
+        logger.info(f"Results saved: {json_path}")
+        logger.info(f"Results saved: {csv_path}")
 
     except Exception as e:
-        logger.error(f"❌ Heuristics Miner failed: {e}")
+        logger.error(f"Heuristics Miner failed: {e}")
         raise
 
 
 if __name__ == "__main__":
+
     main()
