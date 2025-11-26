@@ -1,0 +1,24 @@
+{
+  "xes_path": "data\\xes\\event_log_weekly_with_category.xes",
+  "log_info": {
+    "traces": 2701,
+    "events": 85
+  },
+  "parameters": {
+    "dependency_threshold": 0.5,
+    "and_threshold": 0.65,
+    "loop_two_threshold": 0.5
+  },
+  "fitness": 0.7055013134179415,
+  "precision": 0.9903381642512077,
+  "generalization": 0.40826435038586084,
+  "simplicity": 0.4416615760537569,
+  "model_info": {
+    "places": 320,
+    "transitions": 403,
+    "arcs": 1180,
+    "visible_transitions": 79,
+    "silent_transitions": 324
+  },
+  "f_score": 0.8239988333889352
+}

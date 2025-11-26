@@ -1,0 +1,4 @@
+{
+  "method": "heuristics_miner_fallback",
+  "note": "Fuzzy Miner not available, using Heuristics Miner with frequency-based significance"
+}
