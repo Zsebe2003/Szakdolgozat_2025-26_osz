@@ -1,0 +1,26 @@
+project/
+├─ README.md
+├─ requirements.txt
+├─ .env.example
+├─ main_preprocess.py # beolvasás → tisztítás → kategorizálás → szeletek mentése (CSV/XLSX)
+├─ main_analysis.py # ábrák + leíró statisztikák (a mentett szeletekből)
+├─ main_pm4py.py # XES export + Heuristics Miner + DFG + Petri háló
+└─ src/
+├─ __init__.py
+├─ utils/
+│ ├─ __init__.py
+│ └─ paths.py # elérési utak, kimeneti mappák, alap beállítások
+├─ data_loading.py # magyar dátum parse, Excel/CSV beolvasás
+├─ cleaning.py # szűrések, oszlopképzés (ID-k), időszűrő
+├─ categories.py # kategórialisták + teljes mapping dict
+├─ slicing.py # df_remaining, df_remaining_no_exam, orai/otthoni, extra/nem-extra
+├─ exports.py # CSV/XLSX mentések
+├─ analysis/
+│ ├─ __init__.py
+│ ├─ plotting.py # 2×2 ábrák, vonalak, havi bontások (mentéssel)
+│ └─ stats.py # leírók, value_counts
+└─ pm4py_pipeline/
+├─ __init__.py
+├─ eventlog.py # df → EventLog, XES export
+├─ heuristics.py # Heuristics Miner, DFG, Petri export
+└─ config.py # PM4Py paraméterek (threshold-ok)

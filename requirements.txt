@@ -1,0 +1,6 @@
+pandas>=2.0
+python-dotenv>=1.0
+matplotlib>=3.8
+pm4py==2.7.19
+openpyxl>=3.1
+xlsxwriter>=3.2
