@@ -30,8 +30,9 @@ def main():
         gviz, str(out_dir / "alpha_miner_petri.png")
     )
 
-    print(f"✅ Alpha Miner Petri-háló elmentve ide: {out_dir / 'alpha_miner_petri.png'}")
+    print(f"Alpha Miner Petri-háló elmentve ide: {out_dir / 'alpha_miner_petri.png'}")
 
 
 if __name__ == "__main__":
     main()
+
