@@ -1,0 +1,15 @@
+{
+  "xes_path": "data\\xes\\event_log_weekly_with_category.xes",
+  "fitness": 1.0,
+  "precision": 0.03927151735225187,
+  "generalization": 0.7363691291833419,
+  "simplicity": 0.5883211678832116,
+  "f_score": 0.07557508638801873,
+  "model_info": {
+    "places": 163,
+    "transitions": 240,
+    "arcs": 544,
+    "visible_transitions": 79,
+    "silent_transitions": 161
+  }
+}
