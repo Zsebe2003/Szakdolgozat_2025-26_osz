@@ -21,11 +21,11 @@ def compute_metrics_for_log(xes_path: Path) -> dict:
 
     # 1) Log beolvasása
     log = pm4py.read_xes(str(xes_path))
-    print(f"📊 Log loaded: {len(log)} traces")
+    print(f"Log loaded: {len(log)} traces")
 
     # 2) Alpha Miner modell
     net, im, fm = pm4py.discover_petri_net_alpha(log)
-    print(f"🔧 Petri net discovered: {len(net.places)} places, {len(net.transitions)} transitions")
+    print(f"Petri net discovered: {len(net.places)} places, {len(net.transitions)} transitions")
 
     # =============================
     # FITNESS - token based replay
@@ -33,9 +33,9 @@ def compute_metrics_for_log(xes_path: Path) -> dict:
     try:
         fitness_result = replay_fitness.apply(log, net, im, fm, variant=replay_fitness.Variants.TOKEN_BASED)
         fitness = float(fitness_result['log_fitness'])
-        print(f"✅ Fitness calculated: {fitness}")
+        print(f"Fitness calculated: {fitness}")
     except Exception as e:
-        print(f"⚠️  Fitness calculation failed: {e}")
+        print(f"Fitness calculation failed: {e}")
         fitness = 0.0
 
     # =============================
@@ -44,15 +44,15 @@ def compute_metrics_for_log(xes_path: Path) -> dict:
     try:
         # Először próbáljuk meg az alignments-t (ajánlott)
         precision = float(precision_eval.apply(log, net, im, fm, variant=precision_eval.Variants.ALIGN_ETCONFORMANCE))
-        print(f"✅ Precision calculated: {precision}")
+        print(f"Precision calculated: {precision}")
     except Exception as e:
         print(f"⚠️  Alignments precision failed: {e}")
         try:
             # Fallback: token based precision
             precision = float(precision_eval.apply(log, net, im, fm, variant=precision_eval.Variants.ETCONFORMANCE_TOKEN))
-            print(f"✅ Token-based precision calculated: {precision}")
+            print(f"Token-based precision calculated: {precision}")
         except Exception as e2:
-            print(f"⚠️  Precision calculation failed: {e2}")
+            print(f"Precision calculation failed: {e2}")
             precision = 0.0
 
     # =============================
@@ -60,9 +60,9 @@ def compute_metrics_for_log(xes_path: Path) -> dict:
     # =============================
     try:
         generalization_score = float(generalization_eval.apply(log, net, im, fm))
-        print(f"✅ Generalization calculated: {generalization_score}")
+        print(f"Generalization calculated: {generalization_score}")
     except Exception as e:
-        print(f"⚠️  Generalization calculation failed: {e}")
+        print(f"Generalization calculation failed: {e}")
         # Alternatív generalization számítás
         try:
             from pm4py.algo.conformance.tokenreplay import algorithm as token_replay
@@ -81,9 +81,9 @@ def compute_metrics_for_log(xes_path: Path) -> dict:
             else:
                 generalization_score = 0.5
                 
-            print(f"✅ Alternative generalization calculated: {generalization_score}")
+            print(f"Alternative generalization calculated: {generalization_score}")
         except Exception as e2:
-            print(f"⚠️  Alternative generalization failed: {e2}")
+            print(f"Alternative generalization failed: {e2}")
             generalization_score = 0.5
 
     # =============================
@@ -91,14 +91,14 @@ def compute_metrics_for_log(xes_path: Path) -> dict:
     # =============================
     try:
         simplicity_score = float(simplicity_eval.apply(net))
-        print(f"✅ Simplicity calculated: {simplicity_score}")
+        print(f"Simplicity calculated: {simplicity_score}")
     except Exception as e:
-        print(f"⚠️  Simplicity calculation failed: {e}")
+        print(f"Simplicity calculation failed: {e}")
         # Alternatív simplicity számítás
         try:
             from pm4py.algo.evaluation.simplicity.variants import arc_degree
             simplicity_score = float(arc_degree.apply(net))
-            print(f"✅ Alternative simplicity calculated: {simplicity_score}")
+            print(f"Alternative simplicity calculated: {simplicity_score}")
         except Exception as e2:
             print(f"⚠️  Alternative simplicity failed: {e2}")
             # Nagyon egyszerű simplicity számítás: átmenetek/helyek aránya
@@ -110,7 +110,7 @@ def compute_metrics_for_log(xes_path: Path) -> dict:
                 simplicity_score = 1.0 / (1.0 + (num_arcs / (num_places + num_transitions)))
             else:
                 simplicity_score = 0.5
-            print(f"✅ Basic simplicity calculated: {simplicity_score}")
+            print(f"Basic simplicity calculated: {simplicity_score}")
 
     return {
         "xes_path": str(xes_path),
@@ -167,14 +167,15 @@ def main():
                 f.write(f"{k},{v}\n")
 
     print("\n" + "=" * 60)
-    print("✅ Final Results:")
-    print(f"  📍 Fitness: {metrics['fitness_token_based']:.4f}")
-    print(f"  🎯 Precision: {metrics['precision_etconformance']:.4f}")
-    print(f"  🔄 Generalization: {metrics['generalization']:.4f}")
-    print(f"  ✨ Simplicity: {metrics['simplicity']:.4f}")
-    print(f"  🔧 Model: {metrics['model_info']['places']} places, {metrics['model_info']['transitions']} transitions")
-    print(f"💾 Saved to:\n - {json_path}\n - {csv_path}")
+    print("Final Results:")
+    print(f"Fitness: {metrics['fitness_token_based']:.4f}")
+    print(f"Precision: {metrics['precision_etconformance']:.4f}")
+    print(f"Generalization: {metrics['generalization']:.4f}")
+    print(f"Simplicity: {metrics['simplicity']:.4f}")
+    print(f"Model: {metrics['model_info']['places']} places, {metrics['model_info']['transitions']} transitions")
+    print(f"Saved to:\n - {json_path}\n - {csv_path}")
 
 
 if __name__ == "__main__":
+
     main()
