@@ -38,8 +38,9 @@ def main():
     # Havi bontás
     plot_monthly_bars_orai_otthoni(df_remaining, out_dir=p.figures)
 
-    print("✅ Elemzési ábrák mentve a figures/ alá.")
+    print("Elemzési ábrák mentve a figures/ alá.")
 
 
 if __name__ == "__main__":
+
     main()
