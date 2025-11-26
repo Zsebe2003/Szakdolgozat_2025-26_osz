@@ -28,7 +28,7 @@ python main_pm4py.py           # XES export + HM/DFG/Petri
 `.env` vagy `.env.example` fájlban:
 
 ```
-INPUT_XLSX=C:\Users\dell\OneDrive\Desktop\0_Egyetem\7. félév\Szakdolgozat\logs_INSA011NMBB_ElőadásE01 (2024252)_20250915-1655.xlsx
+INPUT_XLSX='xlsx elérhetősége'
 START_DATE=2025-02-17 00:00:00
 END_DATE=2025-06-23 23:59:59
 ```
